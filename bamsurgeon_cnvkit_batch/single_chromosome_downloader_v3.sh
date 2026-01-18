@@ -59,7 +59,7 @@ curl -L --retry 10 --retry-delay 5 --keepalive-time 60 "$BAM_URL" | \
 picard DownsampleSam \
     --INPUT /dev/stdin \
     --OUTPUT /dev/stdout \
-    --PROBABILITY 0.1 \
+    --PROBABILITY "$DOWNSAMPLE_FRACTION" \
     --STRATEGY Chained \
     --VALIDATION_STRINGENCY SILENT \
     --QUIET true | \
