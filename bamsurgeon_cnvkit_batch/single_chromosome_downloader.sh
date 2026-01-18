@@ -67,7 +67,8 @@ samtools view -h -@ "$THREADS" - | \
 awk -v c="$CHR" 'BEGIN {OFS="\t"} 
     /^@SQ/ {if ($0 ~ "SN:"c"\t" || $0 ~ "SN:chr"c"\t") print; next} 
     /^@/ {print; next} 
-    ($7 == "=" || $7 == $3) {print}' | \
+    ($3 == c || $3 == "chr"c) && ($7 == "=" || $7 == $3) {print}' | \
+samtools view -b -@ "$THREADS" - > "$OUTPUT_BAM"
 samtools view -b -@ "$THREADS" - > "$OUTPUT_BAM"
 echo "Indexing new BAM..."
 samtools index "$OUTPUT_BAM"
