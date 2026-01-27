@@ -14,7 +14,7 @@
 # Reference genome version: "hg38" or "hg19" (hs37d5 also should use "hg19", as dictionaries contain only nuclear autosomes)
 REF_VERSION = "hg19"
 
-# Chromosome to simulate on: "all" or specific name (e.g., "chr20", "chrX")
+# Chromosome to simulate on: "all" or specific name of a nuclear autosome (e.g., "chr8", "chr20")
 # Note: If using a specific chromosome, ensure it exists in the dictionary below.
 CHR_INPUT = "chr1"
 
